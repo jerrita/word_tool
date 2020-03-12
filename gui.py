@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(996, 536)
+        Form.resize(1073, 565)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icon/icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Form.setWindowIcon(icon)
@@ -52,6 +52,9 @@ class Ui_Form(object):
         self.BtnExportError = QtWidgets.QPushButton(Form)
         self.BtnExportError.setObjectName("BtnExportError")
         self.horizontalLayout_4.addWidget(self.BtnExportError)
+        self.BtnRSort = QtWidgets.QPushButton(Form)
+        self.BtnRSort.setObjectName("BtnRSort")
+        self.horizontalLayout_4.addWidget(self.BtnRSort)
         self.CheckSoundAuto = QtWidgets.QCheckBox(Form)
         self.CheckSoundAuto.setObjectName("CheckSoundAuto")
         self.horizontalLayout_4.addWidget(self.CheckSoundAuto)
@@ -60,7 +63,7 @@ class Ui_Form(object):
         self.horizontalLayout_4.addWidget(self.CheckSound)
         self.horizontalLayout_4.setStretch(0, 2)
         self.horizontalLayout_4.setStretch(1, 2)
-        self.horizontalLayout_4.setStretch(2, 1)
+        self.horizontalLayout_4.setStretch(3, 1)
         self.verticalLayout.addLayout(self.horizontalLayout_4)
         self.ListMain = QtWidgets.QListWidget(Form)
         self.ListMain.setObjectName("ListMain")
@@ -111,6 +114,8 @@ class Ui_Form(object):
         self.ListMain.currentRowChanged['int'].connect(Form.rowChanged)
         self.ListCorrect.itemClicked['QListWidgetItem*'].connect(Form.playSound)
         self.ListError.itemClicked['QListWidgetItem*'].connect(Form.playSound)
+        self.ListMain.itemClicked['QListWidgetItem*'].connect(Form.mainSound)
+        self.BtnRSort.clicked.connect(Form.randomSort)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
     def retranslateUi(self, Form):
@@ -122,6 +127,7 @@ class Ui_Form(object):
         self.CheckMode.setText(_translate("Form", "英译汉"))
         self.BtnStatus.setText(_translate("Form", "开始背词"))
         self.BtnExportError.setText(_translate("Form", "错误导出"))
+        self.BtnRSort.setText(_translate("Form", "乱序"))
         self.CheckSoundAuto.setText(_translate("Form", "自动发音"))
         self.CheckSound.setText(_translate("Form", "英音"))
         self.label.setText(_translate("Form", "Trans ->"))

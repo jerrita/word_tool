@@ -1,4 +1,5 @@
 import os
+import random
 import sys
 
 from PyQt5 import QtMultimedia
@@ -19,8 +20,12 @@ class MyWidget(QWidget, Ui_Form):
         self.BtnGo.setDisabled(True)
         self.BtnStatus.setDisabled(True)  # 必须有字典才可开启
         self.BtnExportError.setDisabled(True)
-        self.setWindowTitle('背词小助手 v1.0')
+        self.BtnRSort.setDisabled(True)
+        self.setWindowTitle('背词小助手 build 1.1')
         self.player = QtMultimedia.QMediaPlayer()
+        self.CheckSoundAuto.setChecked(True)
+        self.CheckSound.setChecked(True)
+        self.player.setVolume(50)
 
     def chooseBtnClicked(self):
         choose = QFileDialog.getExistingDirectory()
@@ -57,6 +62,7 @@ class MyWidget(QWidget, Ui_Form):
             self.BtnFlush.setDisabled(True)
             self.ListDir.setDisabled(True)  # 禁止更换词典
             self.BtnExportError.setDisabled(False)  # 允许错误导出
+            self.BtnRSort.setDisabled(False)
             # 模式处理 1 is 英译汉 and 0 is 汉译英(default)
             self.mode = self.CheckMode.isChecked()
             self.CheckMode.setDisabled(True)
@@ -139,6 +145,14 @@ class MyWidget(QWidget, Ui_Form):
         self.player.setMedia(content)
         self.player.play()
 
+    def mainSound(self, item):
+        txt = item.text().split(',')
+        if len(txt) == 2:
+            url = f'http://dict.youdao.com/dictvoice?type={int(self.CheckSound.isChecked())}&audio={txt[0]}'
+            content = QtMultimedia.QMediaContent(QUrl(url))
+            self.player.setMedia(content)
+            self.player.play()
+
     def goBtnClicked(self):
         if self.ListMain.count() == 0:
             return
@@ -148,7 +162,7 @@ class MyWidget(QWidget, Ui_Form):
         self.ListMain.takeItem(self.ListMain.currentRow())
 
         # 翻译校检，使箭头指向单词，便于获取发音
-        if (self.mode and self.EditNow.text() in trans) or (self.EditNow.text() == trans):
+        if (self.mode and self.EditNow.text() in trans and self.EditNow.text()) or (self.EditNow.text() == trans):
             self.count_correct += 1
             self.ListCorrect.addItem(word + (' <- ' if self.mode else ' -> ') + trans)
             self.ListCorrect.setCurrentRow(self.ListCorrect.count() - 1)
@@ -196,6 +210,20 @@ class MyWidget(QWidget, Ui_Form):
                 self.ListDir.setDisabled(False)
                 self.BtnFlush.setDisabled(False)
                 self.CheckMode.setDisabled(False)
+
+    def randomSort(self):
+        # 获取所有元素，打乱插入
+        widgetres = []
+        # 获取listwidget中条目数
+        count = self.ListMain.count()
+        # 遍历listwidget中的内容
+        for i in range(count):
+            widgetres.append(self.ListMain.item(i).text())
+        # 清空，乱序后插入
+        self.ListMain.clear()
+        random.shuffle(widgetres)
+        self.ListMain.addItems(widgetres)
+        self.ListMain.setCurrentRow(0)
 
 
 if __name__ == '__main__':

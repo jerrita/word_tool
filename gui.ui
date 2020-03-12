@@ -6,8 +6,8 @@
             <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>996</width>
-                <height>536</height>
+                <width>1073</width>
+                <height>565</height>
             </rect>
         </property>
         <property name="windowTitle">
@@ -63,7 +63,7 @@
                     <item>
                         <layout class="QVBoxLayout" name="verticalLayout">
                             <item>
-                                <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,2,1,0">
+                                <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,2,0,1,0">
                                     <item>
                                         <widget class="QPushButton" name="BtnStatus">
                                             <property name="text">
@@ -75,6 +75,13 @@
                                         <widget class="QPushButton" name="BtnExportError">
                                             <property name="text">
                                                 <string>错误导出</string>
+                                            </property>
+                                        </widget>
+                                    </item>
+                                    <item>
+                                        <widget class="QPushButton" name="BtnRSort">
+                                            <property name="text">
+                                                <string>乱序</string>
                                             </property>
                                         </widget>
                                     </item>
@@ -211,8 +218,8 @@
             <slot>errorexportBtnClicked()</slot>
             <hints>
                 <hint type="sourcelabel">
-                    <x>580</x>
-                    <y>28</y>
+                    <x>489</x>
+                    <y>41</y>
                 </hint>
                 <hint type="destinationlabel">
                     <x>435</x>
@@ -227,8 +234,8 @@
             <slot>goBtnClicked()</slot>
             <hints>
                 <hint type="sourcelabel">
-                    <x>643</x>
-                    <y>515</y>
+                    <x>747</x>
+                    <y>550</y>
                 </hint>
                 <hint type="destinationlabel">
                     <x>660</x>
@@ -259,12 +266,12 @@
             <slot>click()</slot>
             <hints>
                 <hint type="sourcelabel">
-                    <x>477</x>
-                    <y>511</y>
+                    <x>647</x>
+                    <y>548</y>
                 </hint>
                 <hint type="destinationlabel">
-                    <x>596</x>
-                    <y>506</y>
+                    <x>747</x>
+                    <y>550</y>
                 </hint>
             </hints>
         </connection>
@@ -275,12 +282,12 @@
             <slot>clear()</slot>
             <hints>
                 <hint type="sourcelabel">
-                    <x>616</x>
-                    <y>516</y>
+                    <x>747</x>
+                    <y>550</y>
                 </hint>
                 <hint type="destinationlabel">
-                    <x>385</x>
-                    <y>510</y>
+                    <x>647</x>
+                    <y>548</y>
                 </hint>
             </hints>
         </connection>
@@ -332,6 +339,38 @@
                 </hint>
             </hints>
         </connection>
+        <connection>
+            <sender>ListMain</sender>
+            <signal>itemClicked(QListWidgetItem*)</signal>
+            <receiver>Form</receiver>
+            <slot>mainSound()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>443</x>
+                    <y>288</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>618</x>
+                    <y>10</y>
+                </hint>
+            </hints>
+        </connection>
+        <connection>
+            <sender>BtnRSort</sender>
+            <signal>clicked()</signal>
+            <receiver>Form</receiver>
+            <slot>randomSort()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>553</x>
+                    <y>19</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>554</x>
+                    <y>564</y>
+                </hint>
+            </hints>
+        </connection>
     </connections>
     <slots>
         <slot>chooseBtnClicked()</slot>
@@ -342,5 +381,7 @@
         <slot>dicClicked()</slot>
         <slot>rowChanged()</slot>
         <slot>playSound()</slot>
+        <slot>mainSound()</slot>
+        <slot>randomSort()</slot>
     </slots>
 </ui>
