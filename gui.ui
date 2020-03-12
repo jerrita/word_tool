@@ -63,7 +63,7 @@
                     <item>
                         <layout class="QVBoxLayout" name="verticalLayout">
                             <item>
-                                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                                <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,2,1,0">
                                     <item>
                                         <widget class="QPushButton" name="BtnStatus">
                                             <property name="text">
@@ -75,6 +75,20 @@
                                         <widget class="QPushButton" name="BtnExportError">
                                             <property name="text">
                                                 <string>错误导出</string>
+                                            </property>
+                                        </widget>
+                                    </item>
+                                    <item>
+                                        <widget class="QCheckBox" name="CheckSoundAuto">
+                                            <property name="text">
+                                                <string>自动发音</string>
+                                            </property>
+                                        </widget>
+                                    </item>
+                                    <item>
+                                        <widget class="QCheckBox" name="CheckSound">
+                                            <property name="text">
+                                                <string>英音</string>
                                             </property>
                                         </widget>
                                     </item>
@@ -113,7 +127,7 @@
                     <item>
                         <layout class="QVBoxLayout" name="verticalLayout_2">
                             <item>
-                                <widget class="QLabel" name="label_2">
+                                <widget class="QLabel" name="Label_correct">
                                     <property name="text">
                                         <string>Correct</string>
                                     </property>
@@ -123,7 +137,7 @@
                                 <widget class="QListWidget" name="ListCorrect"/>
                             </item>
                             <item>
-                                <widget class="QLabel" name="label_3">
+                                <widget class="QLabel" name="Label_wrong">
                                     <property name="text">
                                         <string>Wrong</string>
                                     </property>
@@ -286,6 +300,38 @@
                 </hint>
             </hints>
         </connection>
+        <connection>
+            <sender>ListCorrect</sender>
+            <signal>itemClicked(QListWidgetItem*)</signal>
+            <receiver>Form</receiver>
+            <slot>playSound()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>835</x>
+                    <y>117</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>972</x>
+                    <y>6</y>
+                </hint>
+            </hints>
+        </connection>
+        <connection>
+            <sender>ListError</sender>
+            <signal>itemClicked(QListWidgetItem*)</signal>
+            <receiver>Form</receiver>
+            <slot>playSound()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>851</x>
+                    <y>431</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>992</x>
+                    <y>264</y>
+                </hint>
+            </hints>
+        </connection>
     </connections>
     <slots>
         <slot>chooseBtnClicked()</slot>
@@ -295,5 +341,6 @@
         <slot>goBtnClicked()</slot>
         <slot>dicClicked()</slot>
         <slot>rowChanged()</slot>
+        <slot>playSound()</slot>
     </slots>
 </ui>
