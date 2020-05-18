@@ -1,387 +1,431 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
-    <class>Form</class>
-    <widget class="QWidget" name="Form">
-        <property name="geometry">
-            <rect>
-                <x>0</x>
-                <y>0</y>
-                <width>1073</width>
-                <height>565</height>
-            </rect>
-        </property>
-        <property name="windowTitle">
-            <string>背词小助手</string>
-        </property>
-        <property name="windowIcon">
-            <iconset resource="res.qrc">
-                <normaloff>:/icon/icon.ico</normaloff>:/icon/icon.ico
-            </iconset>
-        </property>
-        <layout class="QGridLayout" name="gridLayout">
-            <item row="0" column="0">
-                <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,4,3">
-                    <item>
-                        <layout class="QVBoxLayout" name="verticalLayout_3">
-                            <item>
-                                <widget class="QLineEdit" name="EditDir">
-                                    <property name="placeholderText">
-                                        <string>请选择单词目录，留空为当前</string>
-                                    </property>
-                                </widget>
-                            </item>
-                            <item>
-                                <layout class="QHBoxLayout" name="horizontalLayout_3">
-                                    <item>
-                                        <widget class="QPushButton" name="BtnChooseDir">
-                                            <property name="text">
-                                                <string>选择目录</string>
-                                            </property>
-                                        </widget>
-                                    </item>
-                                    <item>
-                                        <widget class="QPushButton" name="BtnFlush">
-                                            <property name="text">
-                                                <string>刷新</string>
-                                            </property>
-                                        </widget>
-                                    </item>
-                                    <item>
-                                        <widget class="QCheckBox" name="CheckMode">
-                                            <property name="text">
-                                                <string>英译汉</string>
-                                            </property>
-                                        </widget>
-                                    </item>
-                                </layout>
-                            </item>
-                            <item>
-                                <widget class="QListWidget" name="ListDir"/>
-                            </item>
-                        </layout>
-                    </item>
-                    <item>
-                        <layout class="QVBoxLayout" name="verticalLayout">
-                            <item>
-                                <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,2,0,1,0">
-                                    <item>
-                                        <widget class="QPushButton" name="BtnStatus">
-                                            <property name="text">
-                                                <string>开始背词</string>
-                                            </property>
-                                        </widget>
-                                    </item>
-                                    <item>
-                                        <widget class="QPushButton" name="BtnExportError">
-                                            <property name="text">
-                                                <string>错误导出</string>
-                                            </property>
-                                        </widget>
-                                    </item>
-                                    <item>
-                                        <widget class="QPushButton" name="BtnRSort">
-                                            <property name="text">
-                                                <string>乱序</string>
-                                            </property>
-                                        </widget>
-                                    </item>
-                                    <item>
-                                        <widget class="QCheckBox" name="CheckSoundAuto">
-                                            <property name="text">
-                                                <string>自动发音</string>
-                                            </property>
-                                        </widget>
-                                    </item>
-                                    <item>
-                                        <widget class="QCheckBox" name="CheckSound">
-                                            <property name="text">
-                                                <string>英音</string>
-                                            </property>
-                                        </widget>
-                                    </item>
-                                </layout>
-                            </item>
-                            <item>
-                                <widget class="QListWidget" name="ListMain"/>
-                            </item>
-                            <item>
-                                <layout class="QHBoxLayout" name="horizontalLayout_2">
-                                    <item>
-                                        <widget class="QLabel" name="label">
-                                            <property name="text">
-                                                <string>Trans -&gt;</string>
-                                            </property>
-                                        </widget>
-                                    </item>
-                                    <item>
-                                        <widget class="QLineEdit" name="EditNow">
-                                            <property name="focusPolicy">
-                                                <enum>Qt::StrongFocus</enum>
-                                            </property>
-                                        </widget>
-                                    </item>
-                                    <item>
-                                        <widget class="QPushButton" name="BtnGo">
-                                            <property name="text">
-                                                <string>Go</string>
-                                            </property>
-                                        </widget>
-                                    </item>
-                                </layout>
-                            </item>
-                        </layout>
-                    </item>
-                    <item>
-                        <layout class="QVBoxLayout" name="verticalLayout_2">
-                            <item>
-                                <widget class="QLabel" name="Label_correct">
-                                    <property name="text">
-                                        <string>Correct</string>
-                                    </property>
-                                </widget>
-                            </item>
-                            <item>
-                                <widget class="QListWidget" name="ListCorrect"/>
-                            </item>
-                            <item>
-                                <widget class="QLabel" name="Label_wrong">
-                                    <property name="text">
-                                        <string>Wrong</string>
-                                    </property>
-                                </widget>
-                            </item>
-                            <item>
-                                <widget class="QListWidget" name="ListError"/>
-                            </item>
-                        </layout>
-                    </item>
-                </layout>
-            </item>
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1073</width>
+    <height>565</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>背词小助手</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/icon/icon.ico</normaloff>:/icon/icon.ico
+   </iconset>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,4,3">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <item>
+        <widget class="QLineEdit" name="EditDir">
+         <property name="placeholderText">
+          <string>请选择单词目录，留空为当前</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QPushButton" name="BtnChooseDir">
+           <property name="text">
+            <string>选择目录</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="BtnFlush">
+           <property name="text">
+            <string>刷新</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="CheckMode">
+           <property name="text">
+            <string>英译汉</string>
+           </property>
+          </widget>
+         </item>
         </layout>
-    </widget>
-    <resources>
-        <include location="res.qrc"/>
-    </resources>
-    <connections>
-        <connection>
-            <sender>BtnChooseDir</sender>
-            <signal>clicked()</signal>
-            <receiver>Form</receiver>
-            <slot>chooseBtnClicked()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>96</x>
-                    <y>61</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>231</x>
-                    <y>5</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>BtnFlush</sender>
-            <signal>clicked()</signal>
-            <receiver>Form</receiver>
-            <slot>flushBtnClicked()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>200</x>
-                    <y>62</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>418</x>
-                    <y>7</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>BtnStatus</sender>
-            <signal>clicked()</signal>
-            <receiver>Form</receiver>
-            <slot>statusBtnClicked()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>336</x>
-                    <y>20</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>236</x>
-                    <y>529</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>BtnExportError</sender>
-            <signal>clicked()</signal>
-            <receiver>Form</receiver>
-            <slot>errorexportBtnClicked()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>489</x>
-                    <y>41</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>435</x>
-                    <y>530</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>BtnGo</sender>
-            <signal>clicked()</signal>
-            <receiver>Form</receiver>
-            <slot>goBtnClicked()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>747</x>
-                    <y>550</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>660</x>
-                    <y>5</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>ListDir</sender>
-            <signal>itemClicked(QListWidgetItem*)</signal>
-            <receiver>Form</receiver>
-            <slot>dicClicked()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>162</x>
-                    <y>345</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>49</x>
-                    <y>532</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>EditNow</sender>
-            <signal>returnPressed()</signal>
-            <receiver>BtnGo</receiver>
-            <slot>click()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>647</x>
-                    <y>548</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>747</x>
-                    <y>550</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>BtnGo</sender>
-            <signal>clicked()</signal>
-            <receiver>EditNow</receiver>
-            <slot>clear()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>747</x>
-                    <y>550</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>647</x>
-                    <y>548</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>ListMain</sender>
-            <signal>currentRowChanged(int)</signal>
-            <receiver>Form</receiver>
-            <slot>rowChanged()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>479</x>
-                    <y>119</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>822</x>
-                    <y>3</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>ListCorrect</sender>
-            <signal>itemClicked(QListWidgetItem*)</signal>
-            <receiver>Form</receiver>
-            <slot>playSound()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>835</x>
-                    <y>117</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>972</x>
-                    <y>6</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>ListError</sender>
-            <signal>itemClicked(QListWidgetItem*)</signal>
-            <receiver>Form</receiver>
-            <slot>playSound()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>851</x>
-                    <y>431</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>992</x>
-                    <y>264</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>ListMain</sender>
-            <signal>itemClicked(QListWidgetItem*)</signal>
-            <receiver>Form</receiver>
-            <slot>mainSound()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>443</x>
-                    <y>288</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>618</x>
-                    <y>10</y>
-                </hint>
-            </hints>
-        </connection>
-        <connection>
-            <sender>BtnRSort</sender>
-            <signal>clicked()</signal>
-            <receiver>Form</receiver>
-            <slot>randomSort()</slot>
-            <hints>
-                <hint type="sourcelabel">
-                    <x>553</x>
-                    <y>19</y>
-                </hint>
-                <hint type="destinationlabel">
-                    <x>554</x>
-                    <y>564</y>
-                </hint>
-            </hints>
-        </connection>
-    </connections>
-    <slots>
-        <slot>chooseBtnClicked()</slot>
-        <slot>flushBtnClicked()</slot>
-        <slot>statusBtnClicked()</slot>
-        <slot>errorexportBtnClicked()</slot>
-        <slot>goBtnClicked()</slot>
-        <slot>dicClicked()</slot>
-        <slot>rowChanged()</slot>
-        <slot>playSound()</slot>
-        <slot>mainSound()</slot>
-        <slot>randomSort()</slot>
-    </slots>
+       </item>
+       <item>
+        <widget class="QListWidget" name="ListDir"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,2,0,0,1,0">
+         <item>
+          <widget class="QPushButton" name="BtnStatus">
+           <property name="text">
+            <string>开始背词</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="BtnExportError">
+           <property name="text">
+            <string>错误导出</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="orderBtn">
+           <property name="text">
+            <string>顺序</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="BtnRSort">
+           <property name="text">
+            <string>乱序</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="CheckSoundAuto">
+           <property name="text">
+            <string>自动发音</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="CheckSound">
+           <property name="text">
+            <string>英音</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QListWidget" name="ListMain"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>Trans -&gt;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="EditNow">
+           <property name="focusPolicy">
+            <enum>Qt::StrongFocus</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="BtnGo">
+           <property name="text">
+            <string>Go</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="searchEdit"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="Label_correct">
+         <property name="text">
+          <string>Correct</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="ListCorrect"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="Label_wrong">
+         <property name="text">
+          <string>Wrong</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="ListError"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>BtnChooseDir</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>chooseBtnClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>96</x>
+     <y>61</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>231</x>
+     <y>5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnFlush</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>flushBtnClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>418</x>
+     <y>7</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnStatus</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>statusBtnClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>336</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>236</x>
+     <y>529</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnExportError</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>errorexportBtnClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>489</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>435</x>
+     <y>530</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnGo</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>goBtnClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>847</x>
+     <y>519</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>660</x>
+     <y>5</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ListDir</sender>
+   <signal>itemClicked(QListWidgetItem*)</signal>
+   <receiver>Form</receiver>
+   <slot>dicClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>162</x>
+     <y>345</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>49</x>
+     <y>532</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>EditNow</sender>
+   <signal>returnPressed()</signal>
+   <receiver>BtnGo</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>647</x>
+     <y>517</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>847</x>
+     <y>519</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnGo</sender>
+   <signal>clicked()</signal>
+   <receiver>EditNow</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>847</x>
+     <y>519</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>647</x>
+     <y>517</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ListMain</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>Form</receiver>
+   <slot>rowChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>479</x>
+     <y>119</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>822</x>
+     <y>3</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ListCorrect</sender>
+   <signal>itemClicked(QListWidgetItem*)</signal>
+   <receiver>Form</receiver>
+   <slot>playSound()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1059</x>
+     <y>152</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>972</x>
+     <y>6</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ListError</sender>
+   <signal>itemClicked(QListWidgetItem*)</signal>
+   <receiver>Form</receiver>
+   <slot>playSound()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1059</x>
+     <y>551</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>992</x>
+     <y>264</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ListMain</sender>
+   <signal>itemClicked(QListWidgetItem*)</signal>
+   <receiver>Form</receiver>
+   <slot>mainSound()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>443</x>
+     <y>288</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>618</x>
+     <y>10</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BtnRSort</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>randomSort()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>689</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>554</x>
+     <y>564</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>orderBtn</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>orderSort()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>559</x>
+     <y>32</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1023</x>
+     <y>1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>searchEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>Form</receiver>
+   <slot>searchText()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>753</x>
+     <y>542</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>822</x>
+     <y>561</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>chooseBtnClicked()</slot>
+  <slot>flushBtnClicked()</slot>
+  <slot>statusBtnClicked()</slot>
+  <slot>errorexportBtnClicked()</slot>
+  <slot>goBtnClicked()</slot>
+  <slot>dicClicked()</slot>
+  <slot>rowChanged()</slot>
+  <slot>playSound()</slot>
+  <slot>mainSound()</slot>
+  <slot>randomSort()</slot>
+  <slot>orderSort()</slot>
+  <slot>searchText()</slot>
+ </slots>
 </ui>

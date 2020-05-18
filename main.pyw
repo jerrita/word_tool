@@ -21,7 +21,7 @@ class MyWidget(QWidget, Ui_Form):
         self.BtnStatus.setDisabled(True)  # 必须有字典才可开启
         self.BtnExportError.setDisabled(True)
         self.BtnRSort.setDisabled(True)
-        self.setWindowTitle('背词小助手 build 1.2')
+        self.setWindowTitle('背词小助手 build 1.3 bug版')
         self.player = QtMultimedia.QMediaPlayer()
         self.CheckSoundAuto.setChecked(True)
         self.CheckSound.setChecked(True)
@@ -51,8 +51,8 @@ class MyWidget(QWidget, Ui_Form):
     def dicClicked(self, item):
         self.dicnow = item.text()
         self.ListMain.clear()
-        fdic = open(self.dicpath[self.dicnow], 'r', encoding='utf-8').read().split('\n')
-        self.ListMain.addItems(fdic)
+        self.fdic = open(self.dicpath[self.dicnow], 'r', encoding='utf-8').read().split('\n')
+        self.ListMain.addItems(self.fdic)
         self.BtnStatus.setDisabled(False)
 
     def statusBtnClicked(self):
@@ -224,6 +224,15 @@ class MyWidget(QWidget, Ui_Form):
         random.shuffle(widgetres)
         self.ListMain.addItems(widgetres)
         self.ListMain.setCurrentRow(0)
+
+    def orderSort(self):
+        self.ListMain.sortItems()
+
+    def searchText(self, text):
+        self.ListMain.clear()
+        for word in self.fdic:
+            if text in word:
+                self.ListMain.addItem(word)
 
 
 if __name__ == '__main__':
