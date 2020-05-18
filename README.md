@@ -32,6 +32,7 @@ unit4词汇表下载：[点击下载](http://wp.jerrita.cn:88/wp-content/uploads
 # 更新日志
 ## build 1.1
 - 修复 英译汉无输入算答对的bug
+- 优化 默认选择自动发音与英音
 - 新增 单词浏览时点击单词可发音
 - 新增 乱序功能
 

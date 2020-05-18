@@ -21,7 +21,7 @@ class MyWidget(QWidget, Ui_Form):
         self.BtnStatus.setDisabled(True)  # 必须有字典才可开启
         self.BtnExportError.setDisabled(True)
         self.BtnRSort.setDisabled(True)
-        self.setWindowTitle('背词小助手 build 1.1')
+        self.setWindowTitle('背词小助手 build 1.2')
         self.player = QtMultimedia.QMediaPlayer()
         self.CheckSoundAuto.setChecked(True)
         self.CheckSound.setChecked(True)
